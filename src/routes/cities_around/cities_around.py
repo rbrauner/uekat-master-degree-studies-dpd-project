@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.service.cities_around_service import CitiesAroundService
+from src.services.cities_around_service import CitiesAroundService
 
 cities_around_router = APIRouter()
 cities_around_service = CitiesAroundService()

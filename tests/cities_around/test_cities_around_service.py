@@ -1,5 +1,5 @@
 from unittest import TestCase, mock
-from src.service.cities_around_service import CitiesAroundService
+from src.services.cities_around_service import CitiesAroundService
 
 
 class TestCitiesAroundService(TestCase):
