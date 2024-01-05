@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from src.routes.homepage.homepage import homepage_router
 from src.routes.hello_world.hello_world import hello_world_router
+from src.routes.cities_around.cities_around import cities_around_router
 
 app = FastAPI(
     title="uekat-master-degree-studies-dpd-project",
@@ -15,3 +16,4 @@ app = FastAPI(
 )
 app.include_router(homepage_router)
 app.include_router(hello_world_router)
+app.include_router(cities_around_router)
