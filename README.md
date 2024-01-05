@@ -2,7 +2,7 @@
 
 Uniwersytet Ekonimiczny in Katowice - master degree studies - project for the subject "Dobre praktyki programowania"
 
-## Instalation
+## Installation
 
 ```py
 python3 -m venv venv
@@ -17,9 +17,17 @@ source venv/bin/activate
 python main.py
 ```
 
+## Run tests
+
+```py
+source venv/bin/activate
+pytest tests
+```
+
 ## Structure
 
 - data - folder with resources
 - src - folder with sources
+- tests - folder with tests
 - main.py - main program file
 - requirements.txt - python requirements file
