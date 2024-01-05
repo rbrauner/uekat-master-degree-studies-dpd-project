@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from src.homepage.homepage import homepage_router
-from src.hello_world.hello_world import hello_world_router
+from src.routes.homepage.homepage import homepage_router
+from src.routes.hello_world.hello_world import hello_world_router
 
 app = FastAPI(
     title="uekat-master-degree-studies-dpd-project",
