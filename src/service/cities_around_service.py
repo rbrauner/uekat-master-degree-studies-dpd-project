@@ -13,6 +13,10 @@ class CitiesAroundService:
         url = f"https://nominatim.openstreetmap.org/search?q={city_name}&format=json&limit=1"
         response = requests.get(url)
         data = response.json()
+
+        if len(data) == 0:
+            raise Exception(f"City {city_name} not found")
+
         latitude = float(data[0]["lat"])
         longitude = float(data[0]["lon"])
         return {"lat": latitude, "lon": longitude}
