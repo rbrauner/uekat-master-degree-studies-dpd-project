@@ -5,9 +5,9 @@ cities_around_router = APIRouter()
 cities_around_service = CitiesAroundService()
 
 @cities_around_router.get("/cities-around")
-async def cities_around(c: str, d: float):
+async def cities_around(city: str, distance_km: float):
     try:
-        cities_around = cities_around_service.get_cities_around(c, d)
-        return {"city": c, "distance": d, "cities_around": cities_around}
+        cities_around = cities_around_service.get_cities_around(city, distance_km)
+        return {"city": city, "distance_km": distance_km, "cities_around": cities_around}
     except Exception as e:
         return {"error": str(e)}

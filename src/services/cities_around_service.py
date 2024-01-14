@@ -4,9 +4,9 @@ class CitiesAroundService:
     def __init__(self):
         pass
 
-    def get_cities_around(self, city_name: str, distance: float):
+    def get_cities_around(self, city_name: str, distance_km: float):
         coordinates = self.get_coordinates(city_name)
-        cities_around = self.get_cities_around_coordinates(coordinates, distance)
+        cities_around = self.get_cities_around_coordinates(coordinates, distance_km)
         return cities_around
 
     def get_coordinates(self, city_name: str):
@@ -21,9 +21,9 @@ class CitiesAroundService:
         longitude = float(data[0]["lon"])
         return {"lat": latitude, "lon": longitude}
 
-    def get_cities_around_coordinates(self, coordinates: tuple, distance: float):
-        distance = distance * 1000
-        url = f"https://overpass-api.de/api/interpreter?data=[out:json];node(around:{distance},{coordinates['lat']},{coordinates['lon']})[\"place\"=\"city\"];out;"
+    def get_cities_around_coordinates(self, coordinates: tuple, distance_km: float):
+        distance_m = distance_km * 1000
+        url = f"https://overpass-api.de/api/interpreter?data=[out:json];(node(around:{distance_m},{coordinates['lat']},{coordinates['lon']})[place~\"city|town\"];rel(around:{distance_m},{coordinates['lat']},{coordinates['lon']})[place~\"city|town\"];);out;"
         response = requests.get(url)
         data = response.json()
         cities_around = []
