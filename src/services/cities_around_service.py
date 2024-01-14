@@ -23,7 +23,7 @@ class CitiesAroundService:
 
     def get_cities_around_coordinates(self, coordinates: tuple, distance: float):
         distance = distance * 1000
-        url = f"https://overpass-api.de/api/interpreter?data=[out:json];node(around:{distance},{coordinates['lat']},{coordinates['lon']})[\"place\"=\"city\"];out;"
+        url = f"https://overpass-api.de/api/interpreter?data=[out:json];(node(around:{distance},{coordinates['lat']},{coordinates['lon']})[place~\"city|town\"];rel(around:{distance},{coordinates['lat']},{coordinates['lon']})[place~\"city|town\"];);out;"
         response = requests.get(url)
         data = response.json()
         cities_around = []
